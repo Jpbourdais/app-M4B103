@@ -21,6 +21,7 @@
 			<div id="accueil">
 				<h1>La météo de Rambo</h1>
 				<p>Aujourd'hui il fait beau, n'oublie pas ton couteau !</p>
+				<p id="localisation"></p>
 			</div>
 			
 			<div id="suite">
@@ -32,6 +33,33 @@
     	<!-- SCRIPTS -->
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript">
+
+        	document.addEventListener("deviceready", onDeviceReady, false);
+		    function onDeviceReady() {
+		    	$('#accueil').innerHTML = '<p>'+position.coords.latitude+'</p>';
+		        console.log("navigator.geolocation works well");
+		    }
+
+		    // onSuccess Callback
+		    //   This method accepts a `Position` object, which contains
+		    //   the current GPS coordinates
+		    //
+		    function onSuccess(position) {
+		        var element = document.getElementById('localisation');
+		        element.innerHTML = 'Latitude: '  + position.coords.latitude      + '<br />' +
+		                            'Longitude: ' + position.coords.longitude     + '<br />';
+		    }
+
+		    // onError Callback receives a PositionError object
+		    //
+		    function onError(error) {
+		        alert('code: '    + error.code    + '\n' +
+		              'message: ' + error.message + '\n');
+		    }
+
+		    // Options: throw an error if no update is received every 30 seconds.
+		    //
+		    var watchID = navigator.geolocation.watchPosition(onSuccess, onError, { timeout: 30000 });
 
         </script>
         <!-- FIN SCRIPTS -->
