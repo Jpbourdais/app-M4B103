@@ -3,9 +3,38 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
-        <title>Blank App</title>
+        <title>Appli</title>
+
+		<!-- jQuery / jQuery Mobile -->
+		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+		<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+		<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+		<!-- CSS -->
+		<link rel="stylesheet" type="text/css" href="css/style.css" />
+
     </head>
-    <body>
+
+    <body id="app">
+
+		<div data-role="page" id="content">
+			<div id="accueil">
+				<h1>La météo de Rambo</h1>
+				<p>Aujourd'hui il fait beau, n'oublie pas ton couteau !</p>
+			</div>
+			
+			<div id="suite">
+				<h1>Message</h1>
+			</div>
+		</div>
+
+
+    	<!-- SCRIPTS -->
         <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript">
+
+        </script>
+        <!-- FIN SCRIPTS -->
+
     </body>
 </html>
