@@ -32,7 +32,13 @@
     	<!-- SCRIPTS -->
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript">
-
+			$(document).ready(function () {
+				$.ajax("http://api.openweathermap.org/data/2.5/weather?lat=48.267881&lon=4.0958306&units=metric&appid=8b4e831eef1cebf85650dcae746f6727", {
+					success: function(data) {
+						console.log($data);
+					}
+				});
+			});
         </script>
         <!-- FIN SCRIPTS -->
 
